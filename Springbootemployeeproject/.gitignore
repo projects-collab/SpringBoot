@@ -31,3 +31,15 @@ build/
 
 ### VS Code ###
 .vscode/
+
+
+
+## temporary files ##
+*.log
+*.tmp
+*.swp
+
+
+### Windows ###
+Thumbs.db
+desktop.ini
