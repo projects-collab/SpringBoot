@@ -1,0 +1,5 @@
+package com.employee.springbootmvc.repository;
+
+public interface EmployeeRepository {
+
+}

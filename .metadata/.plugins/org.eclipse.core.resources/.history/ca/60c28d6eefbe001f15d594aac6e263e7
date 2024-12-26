@@ -1,0 +1,28 @@
+<html>
+	<head>
+		<title>Search the product</title>
+	</head>
+	<body>
+		<h1>Search the Product</h1>
+				<form action="@{/search}" method="post">
+					<label>Enter ID: </label>
+					<input type="number" name="id">
+					<button type="submit">Saerch</button>
+				</form>
+				
+				<!---This is code is executed when the product is available--->
+				<div th:if="${Product != null}">
+					<h3>Product Details</h3>
+					<p><strong>ID: </strong><span th:text="${Product.id}"></span></p>
+					<p><strong>Name: </strong><span th:text="${Product.name}"></span></p>
+					<p><strong>Brand: </strong><span th:text="${Product.brand}"></span></p>
+					<p><strong>MadeIN: </strong><span th:text="${Product.madein}"></span></p>
+				</div>
+				
+				
+				<!----This code is executed when the product is not available--->
+				<div th:if="${Product == null}">
+					<p><b>Product with given id is not available</b></p>
+				</div>
+	</body>
+</html>

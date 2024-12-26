@@ -1,0 +1,30 @@
+package com.sathya.springbootmvc.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.sathya.springbootmvc.model.ProductModel;
+import com.sathya.springbootmvc.repository.Repository;
+
+@org.springframework.stereotype.Service
+public class Service {
+       @Autowired
+       Repository repository;
+
+
+	public void saveDetails(ProductModel product)
+	{
+		 
+		double stockvalue;
+		stockvalue = ProductModel.getPrice() * ProductModel.getQuantity();
+		
+		double discountprice;
+		discountprice = ProductModel.getPrice() * (ProductModel.getDiscountrate());
+		
+		double offerprice;
+		offerprice = ProductModel.getPrice() - discountprice;
+		
+		
+		
+	}
+       
+}

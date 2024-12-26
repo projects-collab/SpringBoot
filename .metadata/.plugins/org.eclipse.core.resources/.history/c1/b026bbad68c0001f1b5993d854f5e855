@@ -1,0 +1,30 @@
+package com.employee.springbootmvc.entity;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Entity
+@Table(name="Employee")
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class EmployeeEntity {
+	@Id
+	private long id;
+    private String name;
+    private long phoneno;
+    private String email;
+    private String gender;
+    private String doj;
+    private String deptname;
+    private int deptno;
+    private double salary;  
+    private double da;
+    private double hra;
+    private double totalsalary;
+}

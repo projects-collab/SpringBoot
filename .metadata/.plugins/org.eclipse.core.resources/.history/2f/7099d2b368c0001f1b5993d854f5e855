@@ -1,0 +1,23 @@
+package com.employee.springbootmvc.employeemodel;
+
+import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class EmployeeModel {
+	
+	@Id
+	private long id;
+    private String name;
+    private long phoneno;
+    private String email;
+    private String gender;
+    private String doj;
+    private String deptname;
+    private int deptno;
+    private double salary;
+}

@@ -1,0 +1,33 @@
+package com.employee.springbootmvc.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import com.employee.springbootmvc.employeemodel.EmployeeModel;
+import com.employee.springbootmvc.service.EmployeeService;
+
+@org.springframework.stereotype.Controller
+public class EmployeeController {
+	    @Autowired
+	    EmployeeService employeeService;
+	
+	
+	    // to get the employee form
+	    @GetMapping("/employee")
+	    public String getEmployee()
+	    {
+	      	return "employee";
+	    }
+	
+	    // to send the employee data
+	    @PostMapping("/submit")
+	    public String sendEmployeeForm(EmployeeModel employeeModel)
+	    {
+		    employeeService.saveEmployeeData(employeeModel);
+		    return "success";
+	    }
+	    
+	    
+	    // to store the employee form data
+}

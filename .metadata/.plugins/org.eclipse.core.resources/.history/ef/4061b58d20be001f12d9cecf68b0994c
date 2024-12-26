@@ -1,0 +1,40 @@
+package com.sathya.springbootmvc.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import com.sathya.springbootmvc.model.ProductModel;
+import com.sathya.springbootmvc.service.Service;
+
+@org.springframework.stereotype.Controller
+public class Controller {
+	// injecting dependencies 
+	 @Autowired
+	 Service service;
+	
+	 
+	  @GetMapping("/text")
+      public String say()
+      {
+    	  return "greet";
+      }
+	  
+	  
+	  
+	  // to get the form
+	  @GetMapping ("/productform")
+	  public String getProductForm()
+	  {
+		  return "add-product";
+	  }
+	  
+	  
+	  // to send the form data
+	  @PostMapping ("/saveProduct")
+	  public String sendProductData(ProductModel product)
+	  {
+		  service.saveProductDetails(product);
+		  return "success";
+	  }  
+}

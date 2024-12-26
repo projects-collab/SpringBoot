@@ -1,0 +1,33 @@
+<html>
+	<head>
+		<title>Seach Employee Based on id</title>
+	</head>
+	<body>
+		<h1>Search Employee Details</h1>
+		<form th:action="@{/searchemployee}" method="post">
+			<label>Enter the employee id: </label>
+			<input type="number" name="id">
+			<button type="submit" value="Search">Search</button>
+		</form>
+		
+		<!---This is code is executed when the product is available--->
+		<div th:if="${Employees != null}">
+		<h3>Employee Details</h3>
+		<p><strong>ID: </strong><span th:text="${Employees.id}"></span></p>
+		<p><strong>Name: </strong><span th:text="${Employees.name}"></span></p>
+		<p><strong>Phone no: </strong><span th:text="${Employees.phoneno}"></span></p>
+		<p><strong>Email: </strong><span th:text="${Employees.email}"></span></p>
+		<p><strong>Gender: </strong><span th:text="${Employees.gender}"></span></p>
+		<p><strong>Date of joining: </strong><span th:text="${Employees.doj}"></span></p>
+		<p><strong>Department name: </strong><span th:text="${Employees.deptname}"></span></p>
+	    <p><strong>Department no: </strong><span th:text="${Employees.deptno}"></span></p>
+		<p><strong>Salary: </strong><span th:text="${Employees.totalsalary}"></span></p>
+		</div>
+		
+		
+		<!----This code is executed when the employee is not available--->
+		<div th:if="${Employees == null}">
+		<p><b>Employee details are not available</b></p>
+		</div>
+	</body>
+</html>

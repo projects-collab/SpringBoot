@@ -1,0 +1,27 @@
+<html>
+	<head>
+		<title>Employee Details</title>
+	</head>
+	<body>
+		<div>
+		<h1>Employee Details</h1>
+		<table>
+			<thead>
+				<tr>
+					<th>Employee ID</th>
+					<th>Employee Name</th>
+					<th>Employee Phone no</th>
+					<th>Employee Gender</th>
+					<th>Date of Joining</th>
+					<th>Department no</th>
+					<th>Employee Salary</th>
+					<th>Daily Allowances</th>
+					<th>House Rent Allowances</th>
+					<th>Total Salary</th>
+					
+				</tr>
+			</thead>
+		</table>
+		</div>
+	</body>
+</html>

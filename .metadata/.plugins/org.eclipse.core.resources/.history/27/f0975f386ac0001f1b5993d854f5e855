@@ -1,0 +1,48 @@
+<html>
+	<head>
+		<title>Employee Details</title>
+	</head>
+	<body>
+		<center>
+		<div>
+		<h1>Employee Details</h1>
+		<table border="2">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Name</th>
+					<th>Phone no</th>
+					<th>Email</th>
+					<th>Gender</th>
+					<th>Date of Joining</th>
+					<th>Department Name</th>
+					<th>Department no</th>
+					<th>Employee Salary</th>
+					<th>Daily Allowances</th>
+					<th>House Rent Allowances</th>
+					<th>Total Salary</th>
+					<th>Action</th>
+					
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="employee : ${Employees}">
+					<td th:text="${employee.id}"></td>
+					<td th:text="${employee.name}"></td>
+					<td th:text="${employee.phoneno}"></td>
+					<td th:text="${employee.email}"></td>
+					<td th:text="${employee.gender}"></td>
+					<td th:text="${employee.doj}"></td>
+					<td th:text="${employee.deptname}"></td>
+					<td th:text="${employee.deptno}"></td>
+					<td th:text="${employee.salary}"></td>
+					<td th:text="${employee.da}"></td>
+					<td th:text="${employee.hra}"></td>
+					<td th:text="${employee.totalsalary}"></td>
+				</tr>
+			</tbody>
+		</table>
+	   </div>
+	  </center>
+	</body>
+</html>

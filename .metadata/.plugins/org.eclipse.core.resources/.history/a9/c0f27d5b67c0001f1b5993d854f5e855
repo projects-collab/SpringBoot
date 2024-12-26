@@ -1,0 +1,67 @@
+package com.employee.springbootmvc.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import com.employee.springbootmvc.employeemodel.EmployeeModel;
+import com.employee.springbootmvc.entity.EmployeeEntity;
+import com.employee.springbootmvc.service.EmployeeService;
+import org.springframework.web.bind.annotation.RequestParam;
+
+
+@org.springframework.stereotype.Controller
+public class EmployeeController {
+	    @Autowired
+	    EmployeeService employeeService;
+	
+	
+	    // to get the employee form
+	    @GetMapping("/employee")
+	    public String getEmployee()
+	    {
+	      	return "employee";
+	    }
+	
+	    // to send the employee data
+	    @PostMapping("/submit")
+	    public String sendEmployeeForm(EmployeeModel employeeModel)
+	    {
+		    employeeService.saveEmployeeData(employeeModel);
+		    return "success";
+	    }
+	    
+	    
+	    // to get all the employee details
+	    @GetMapping("/getemployeedetails")
+	    public String getEmployeeDetails(Model model)
+	    {
+	    	List<EmployeeEntity> employee = employeeService.getEmployeeDetails();
+	    	
+	    	model.addAttribute("Employees", employee);
+	    	return "EmployeeDetails";
+	    }
+	    
+	    
+	    
+	    // get the search form
+	    @GetMapping("/searchform")
+	    public String getSearchForm()
+	    {
+	    	return "SearchEmployee";
+	    }
+	    
+	    
+	    @PostMapping("/search")
+	    public String searchEmployeeById(@RequestParam int id, Model model)
+	    {
+	    	EmployeeEntity employee = employeeService.searchEmployeeById(id);  
+	    	
+	    	 model.addAttribute("Employee", employee);
+	         return "SearchEmployee";
+        }
+	    
+  }

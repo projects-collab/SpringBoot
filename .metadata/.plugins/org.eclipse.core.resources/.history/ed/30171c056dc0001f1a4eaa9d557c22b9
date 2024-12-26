@@ -1,0 +1,9 @@
+<html>
+	<head>
+		<title>Contact us page</title>
+	</head>
+	<body>
+		<h1 style="color: crimson;">Contact: </h1>
+		<label>Name: </label>
+	</body>
+</html>

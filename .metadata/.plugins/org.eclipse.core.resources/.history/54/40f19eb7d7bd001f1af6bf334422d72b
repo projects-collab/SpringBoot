@@ -1,0 +1,15 @@
+spring.application.name=Springbootproject
+
+# H2 Database Configuration
+spring.datasource.url=jdbc:h2:mem:testdb     # In-memory database
+spring.datasource.driver-class-name=org.h2.Driver
+spring.datasource.username=sa               # Default username
+spring.datasource.password=pass@123                # Default password (empty)
+
+# JPA (if using Spring Data JPA)
+spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+spring.jpa.hibernate.ddl-auto=update        # Update schema automatically
+
+#to show sql queries
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format_sql=true

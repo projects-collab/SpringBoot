@@ -1,0 +1,62 @@
+<html>
+	<head>
+		<title>Employee form</title>
+		<style>
+			.error{
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Employee Details Form</h1>
+		<form th:action="@{/submit}" th:object="employee" method="post">
+			<label> ID: </label>
+			<input type="number" name="id" placeholder="enter employee ID">
+			<p class="error" th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></p>
+			<br><br>
+			
+			<label>  Name: </label>
+			<input type="text" name="name" placeholder="enter employee name">
+			<p class="error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
+		    <br><br>
+						
+			<label> Phone no: </label>
+			<input type="number" name="phoneno" placeholder="enter phone no">
+			<p class="error" th:if="${#fields.hasErrors('phoneno')}" th:errors="*{phoneno}"></p>
+			<br><br>
+			
+			<label> Email: </label>
+		    <input type="email" name="email" placeholder="enter email">
+			<p class="error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
+			<br><br>
+				
+			<label> Gender: </label>
+			<input type="radio" name="gender" value="Male">Male
+			<input type="radio" name="gender" value="Female">Female
+			<br><br>					
+												
+			<label>Date of Joining </label>
+			<input type="date" name="doj">
+			<br><br>
+					
+			<label>Department Name:</label>
+			<input type="text" name="deptname" placeholder="enter department name">
+			<p class="error" th:if="${#fields.hasErrors('deptname')}" th:errors="*{deptname}"></p>
+			<br><br>
+													
+			<label>Department No:</label>
+			<input type="number" name="deptno" placeholder="enter department no">
+			<p class="error" th:if="${#fields.hasErrors('deptno')}" th:errors="*{deptno}"></p>
+			<br><br>
+			
+			<label>Employee Salary: </label>
+		    <input type="number" name="salary" placeholder="enter employee salary">
+			<p class="error" th:if="${#fields.hasErrors('salary')}" th:errors="*{salary}"></p>
+			<br><br>
+			
+			<input type="submit" value="Save">
+			<input type="reset" value="Back">
+			
+		</form>
+	</body>
+</html>

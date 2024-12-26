@@ -1,0 +1,6 @@
+package com.sathya.springbootmvc.repository;
+
+@org.springframework.stereotype.Repository
+public interface Repository {
+	
+}

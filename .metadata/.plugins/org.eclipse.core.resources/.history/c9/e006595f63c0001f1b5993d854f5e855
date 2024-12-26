@@ -1,0 +1,76 @@
+package com.employee.springbootmvc.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.employee.springbootmvc.employeemodel.EmployeeModel;
+import com.employee.springbootmvc.entity.EmployeeEntity;
+import com.employee.springbootmvc.repository.EmployeeRepository;
+
+@Service
+public class EmployeeService {
+        @Autowired
+        EmployeeRepository employeeRepository;
+
+		public void saveEmployeeData(EmployeeModel employeeModel) {
+			
+			double da;
+			da = 0.2 * employeeModel.getSalary();
+			
+			double hra;
+			hra = 0.3 * employeeModel.getSalary();
+			
+			double totalsalary;
+			totalsalary = da + hra + employeeModel.getSalary();
+			
+			// create the object for employee entity class and save that class in database
+			EmployeeEntity employeeEntity = new EmployeeEntity();
+			
+			employeeEntity.setId(employeeModel.getId());
+			employeeEntity.setName(employeeModel.getName());
+			employeeEntity.setPhoneno(employeeModel.getPhoneno());
+			employeeEntity.setEmail(employeeModel.getEmail());
+			employeeEntity.setGender(employeeModel.getGender());
+			employeeEntity.setDoj(employeeModel.getDoj());
+			employeeEntity.setDeptname(employeeModel.getDeptname());
+			employeeEntity.setDeptno(employeeModel.getDeptno());
+			employeeEntity.setSalary(employeeModel.getSalary());
+			employeeEntity.setDa(da);
+			employeeEntity.setHra(hra);
+			employeeEntity.setTotalsalary(totalsalary);
+			
+			employeeRepository.save(employeeEntity);
+		}
+		
+		
+		
+		// to get employee details from the database
+
+		public List<EmployeeEntity> getEmployeeDetails() 
+		{
+			List<EmployeeEntity>  employee  = employeeRepository.findAll();
+			return employee;
+		}
+
+
+		
+        // search employee based on id
+		public EmployeeEntity searchEmployeeById(int id)
+		{
+			Optional<EmployeeEntity> optional = employeeRepository.findById(id);
+			
+			if(optional.isPresent())
+			{
+				  EmployeeEntity entity = optional.get();
+				  return entity;
+			}
+			else
+			{
+				return null;
+			}
+		}
+		
+}

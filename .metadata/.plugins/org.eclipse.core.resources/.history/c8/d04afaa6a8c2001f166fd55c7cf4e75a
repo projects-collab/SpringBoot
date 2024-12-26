@@ -1,0 +1,25 @@
+package com.employee.springbootmvc.employeemodel;
+
+import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Positive;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class EmployeeModel {
+	
+	@Id
+	@Positive(message ="*please give proper number format id") private int id;
+    @NotBlank(message ="*name field must not be blank") private String name;
+    @NotBlank(message ="please enter the valid phone number +91") private long phoneno;
+    @NotBlank(message ="*email field must not be blank") private String email;
+    private String gender;
+    private String doj;
+    @NotBlank(message ="*please enter the department name") private String deptname;
+    @Positive(message = "*please enter the valid department number(numbers only 0-9 format)") private int deptno;
+    @NotBlank(message = "*please enter employee salary") private double salary;
+}
